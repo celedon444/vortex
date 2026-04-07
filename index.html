@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Vortex - Tienda de Tecnología</title>
+</head>
+<body>
+
+<header>
+    <div class="menu-header" id="Inicio"> 
+        <i class="fa-solid fa-bars icon-menu"></i>
+    </div>
+<nav id="menu-responsive">
+    <a href="#" onclick="buscarSeccion('computadora'); return false;">Computadores</a>
+    <a href="#" onclick="buscarSeccion('celular'); return false;">Celulares</a>
+    <a href="#" onclick="buscarSeccion('televisores'); return false;">Televisores</a>
+    <a href="#" onclick="buscarSeccion('consola'); return false;">Consolas</a>
+    <a href="#" onclick="buscarSeccion('camara'); return false;">Cámaras</a>
+    <a href="#" onclick="buscarSeccion('sonido'); return false;">Audio</a>
+    <a href="#" onclick="buscarSeccion('impresora'); return false;">Impresoras</a>
+    <a href="#" onclick="buscarSeccion('smartwatch'); return false;">Smartwatch</a>
+</nav>
+    <img src="img/logo-vortex.png" alt="Logo" class="logo-vortex">
+    <div>
+        <form class="busqueda" method="get">
+        <input type="text" placeholder="¿Qué estás buscando?">
+        <button type="submit" class="boton-lupa">
+        <i class="fa-solid fa-magnifying-glass icon-lupa"></i>           
+    </div> 
+    <div class="iconos-header">           
+        <i class="fa-solid fa-bell icon-notificaciones"><p class="textos-header">Notificaciones</p></i>
+        <i class="fa-solid fa-user icon-user" onclick="loguearse()"><p class="textos-header tx" id="tx">Mi Cuenta</p></i>
+        <div class="contenedor_contador_carrito">
+            <i class="fa-solid fa-cart-shopping icon-carrito"><p class="textos-header">Carrito</p></i>
+            <span class="contar_carrito" id="contadorCarrito" >0</span>
+        </div>
+    </div>                
+</header>
+
+<nav class="menu-categorias">
+    <a href="#" onclick="buscarSeccion('computadora'); return false;">Computadores</a>
+    <a href="#" onclick="buscarSeccion('celular'); return false;">Celulares</a>
+    <a href="#" onclick="buscarSeccion('televisores'); return false;">Televisores</a>
+    <a href="#" onclick="buscarSeccion('consola'); return false;">Consolas</a>
+    <a href="#" onclick="buscarSeccion('camara'); return false;">Cámaras</a>
+    <a href="#" onclick="buscarSeccion('sonido'); return false;">Audio</a>
+    <a href="#" onclick="buscarSeccion('impresora'); return false;">Impresoras</a>
+    <a href="#" onclick="buscarSeccion('smartwatch'); return false;">Smartwatch</a>
+</nav>                
+
+<div class="contenedor-del-carrusel">
+    <div class="diapositiva-del-carrusel desvanecer">
+        <img src="img/carrusel1.png" alt="Promoción 1">
+    </div>
+    <div class="diapositiva-del-carrusel desvanecer">
+        <img src="img/carrusel2.png" alt="Promoción 2">
+    </div>
+    <div class="diapositiva-del-carrusel desvanecer">
+        <img src="img/carrusel3.png" alt="Promoción 3">
+    </div>     
+    <a class="anterior">&#10094;</a><a class="siguiente">&#10095;</a>
+</div>    
+
+<div class="texto-rodante">
+    <span>
+    🚀 Potencia tu mundo digital con nuestras ofertas tecnológicas!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    🕒 Ofertas disponibles solo por tiempo limitado!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    💥 Descuentos hasta agotar existencias!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    ✨ Haz tu día mejor con un descuento especial!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    🚀 Potencia tu mundo digital con nuestras ofertas tecnológicas!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    🕒 Ofertas disponibles solo por tiempo limitado!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    💥 Descuentos hasta agotar existencias!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    ✨ Haz tu día mejor con un descuento especial!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    </span>
+</div>
+
+<section>      
+    <div class="franja">
+        <div class="lado"  id="productos"></div>
+        <div class="texto-sesiones" id="computadora">COMPUTADORES</div>
+        <div class="lado"></div>
+    </div>
+
+    <div class="contenedor">
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/computadores1.png" alt="Computador 1">
+            </div>
+            <p class="descripcion">Portátil - Acer Aspire 3</p>
+            <div class="precios">
+                <span class="precio-actual">$2'150.900</span>
+                <span class="precio-anterior">$2'489.900</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.8</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/computadores2.png" alt="Computador 2">
+            </div>
+            <p class="descripcion">Portátil - Acer Celeron</p>
+            <div class="precios">
+                <span class="precio-actual">$2'300.900</span>
+                <span class="precio-anterior">$2'789.900</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.9</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/computadores3.png" alt="Computador 3">
+            </div>
+            <p class="descripcion">Personaliza tu PC </p>
+            <div class="precios">
+                <span class="precio-actual">$2'500.000</span>
+                <span class="precio-anterior">$3'199.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">5.0</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+    </div> 
+</section>
+
+<section>      
+    <div class="franja">
+        <div class="lado"></div>
+        <div class="texto-sesiones" id="celular">CELULARES</div>
+        <div class="lado"></div>
+    </div>
+
+    <div class="contenedor">
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/celulares1.jpg" alt="Celular 1">
+            </div>
+            <p class="descripcion">!Phone 11 - 64 GB</p>
+            <div class="precios">
+                <span class="precio-actual">$2'189.900</span>
+                <span class="precio-anterior">$2'300.900</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.8</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/celulares2.jpg" alt="Celular 2">
+            </div>
+            <p class="descripcion">!Phone 13 - 128 GB</p>
+            <div class="precios">
+                <span class="precio-actual">$3'199.900</span>
+                <span class="precio-anterior">$3'450.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.9</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/celulares3.jpg" alt="Celular 3">
+            </div>
+            <p class="descripcion">iPhone 12 - 128 GB</p>
+            <div class="precios">
+                <span class="precio-actual">$2'399.000</span>
+                <span class="precio-anterior">$2'600.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.8</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+    </div> 
+</section>
+
+<section>      
+    <div class="franja">
+        <div class="lado"></div>
+        <div class="texto-sesiones" id="televisores">TELEVISORES</div>
+        <div class="lado"></div>
+    </div>
+
+    <div class="contenedor">
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/televisores1.png" alt="Televisor 1">
+            </div>
+            <p class="descripcion">Smart TV - Samsung 32″</p>
+            <div class="precios">
+                <span class="precio-actual">$989.900</span>
+                <span class="precio-anterior">$1'200.900</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.5</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/televisores2.png" alt="Televisor 2">
+            </div>
+            <p class="descripcion">Smart TV - LG 43″</p>
+            <div class="precios">
+                <span class="precio-actual">$2'399.900</span>
+                <span class="precio-anterior">$2'750.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.7</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/televisores3.png" alt="Televisor 3">
+            </div>
+            <p class="descripcion">Smart TV - Xiaomi 55″</p>
+            <div class="precios">
+                <span class="precio-actual">$3'199.000</span>
+                <span class="precio-anterior">$3'500.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">5.0</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+    </div> 
+</section>
+
+<section>      
+    <div class="franja">
+        <div class="lado"></div>
+        <div class="texto-sesiones" id="consola">CONSOLAS</div>
+        <div class="lado"></div>
+    </div>
+
+    <div class="contenedor">
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/consolas1.jpg" alt="Consola 1">
+            </div>
+            <p class="descripcion">Play Station 5</p>
+            <div class="precios">
+                <span class="precio-actual">$2'489.900</span>
+                <span class="precio-anterior">$2'700.900</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">5.0</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/consolas2.jpg" alt="Consola 2">
+            </div>
+            <p class="descripcion">Xbox X/S</p>
+            <div class="precios">
+                <span class="precio-actual">$2'399.900</span>
+                <span class="precio-anterior">$2'550.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.9</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/consolas3.jpg" alt="Consola 3">
+            </div>
+            <p class="descripcion">Nintendo Switch</p>
+            <div class="precios">
+                <span class="precio-actual">$1'299.000</span>
+                <span class="precio-anterior">$1'500.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.8</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+    </div> 
+</section>
+
+<section>      
+    <div class="franja">
+        <div class="lado"></div>
+        <div class="texto-sesiones" id="camara">CÁMARAS</div>
+        <div class="lado"></div>
+    </div>
+
+    <div class="contenedor">
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/camaras1.png" alt="Cámara 1">
+            </div>
+            <p class="descripcion">Nikon D7500</p>
+            <div class="precios">
+                <span class="precio-actual">$2'989.900</span>
+                <span class="precio-anterior">$3'300.900</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.9</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/camaras2.png" alt="Cámara 2">
+            </div>
+            <p class="descripcion">TP-Link Tapo C200 </p>
+            <div class="precios">
+                <span class="precio-actual">$1'799.900</span>
+                <span class="precio-anterior">$2'050.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">5.0</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/camaras3.png" alt="Cámara 3">
+            </div>
+            <p class="descripcion">D-Link DCS-8000LH </p>
+            <div class="precios">
+                <span class="precio-actual">$1'899.000</span>
+                <span class="precio-anterior">$2'180.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">5.0</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+    </div> 
+</section>
+
+<section>      
+    <div class="franja">
+        <div class="lado"></div>
+        <div class="texto-sesiones" id="sonido">SONIDO</div>
+        <div class="lado"></div>
+    </div>
+
+    <div class="contenedor">
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/sonido1.jpg" alt="Sonido 1">
+            </div>
+            <p class="descripcion">JBL PartyBox 110</p>
+            <div class="precios">
+                <span class="precio-actual">$989.900</span>
+                <span class="precio-anterior">$1'200.900</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.9</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/sonido2.jpg" alt="Sonido 2">
+            </div>
+            <p class="descripcion">JBL Charge 5</p>
+            <div class="precios">
+                <span class="precio-actual">$199.900</span>
+                <span class="precio-anterior">$250.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.7</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/sonido3.jpg" alt="Sonido 3">
+            </div>
+            <p class="descripcion">JBL Xtreme 3</p>
+            <div class="precios">
+                <span class="precio-actual">$399.000</span>
+                <span class="precio-anterior">$420.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.8</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+    </div> 
+</section>
+
+<section>      
+    <div class="franja">
+        <div class="lado"></div>
+        <div class="texto-sesiones" id="impresora">IMPRESORAS</div>
+        <div class="lado"></div>
+    </div>
+
+    <div class="contenedor">
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/impresora1.png" alt="Impresora 1">
+            </div>
+            <p class="descripcion">BROTHER DCP-L5600DN</p>
+            <div class="precios">
+                <span class="precio-actual">$5'513.000</span>
+                <span class="precio-anterior">$6'125.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">5.0</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/impresora2.png" alt="Impresora 2">
+            </div>
+            <p class="descripcion">HP NEVERSTOP 1200W</p>
+            <div class="precios">
+                <span class="precio-actual">$2'828.000</span>
+                <span class="precio-anterior">$3'142.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.9</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/impresora3.png" alt="Impresora 3">
+            </div>
+            <p class="descripcion">BROTHER DCP-1617NW</p>
+            <div class="precios">
+                <span class="precio-actual">$2'025.000</span>
+                <span class="precio-anterior">$2'250.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.8</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+    </div> 
+</section>
+
+<section>      
+    <div class="franja">
+        <div class="lado"></div>
+        <div class="texto-sesiones" id="smartwatch">SMARTWATCH</div>
+        <div class="lado"></div>
+    </div>
+
+    <div class="contenedor">
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/smartwatch1.PNG" alt="Smartwatch 1">
+            </div>
+            <p class="descripcion">T-REX PRO</p>
+            <div class="precios">
+                <span class="precio-actual">$689.900</span>
+                <span class="precio-anterior">$810.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.9</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/smartwatch2.PNG" alt="Smartwatch 2">
+            </div>
+            <p class="descripcion">SAMSUNG WATCH 3</p>
+            <div class="precios">
+                <span class="precio-actual">$399.900</span>
+                <span class="precio-anterior">$415.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.7</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="hijo">
+            <div class="hijo-img">
+                <img src="img/smartwatch3.PNG" alt="Smartwatch 3">
+            </div>
+            <p class="descripcion">AMAZFIT BIP PRO</p>
+            <div class="precios">
+                <span class="precio-actual">$195.000</span>
+                <span class="precio-anterior">$220.000</span>
+            </div>
+            <div class="calificacion">
+                <span class="valoracion">4.2</span>
+                <i class="fa-solid fa-star icon-estrella"></i>
+            </div>
+            <div class="hijo-compra">
+                <button type="button" class="comprar">Añadir ­ <i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+        </div>
+    </div> 
+</section>
+
+<footer id="Contacto" class="footer">
+    <div class="footer-contenido">
+        <div class="footer-secciones">
+        <img src="img/logo-vortex.png" alt="" class="footer-logo">
+        <p>
+        <br>Vortex - Tienda de Tecnología   
+        </p>
+    </div>
+
+<div class="footer-secciones">
+    <h4>Menú</h4>
+    <p>Inicio</p>
+    <p>Categorías</p>
+    <p>Ofertas</p>
+    <p>Notificaciones</p>
+    <p>Política de Privacidad</p>
+</div>
+
+<div class="footer-secciones">
+    <h4>Ubicaciones</h4>
+    <div class="footer-ubicaciones">
+        <p>Santa Marta</p>
+        <p>Barranquilla</p>
+        <p>Bucaramanga</p>
+        <p>Medellín</p>
+        <p>Bogotá</p>
+    </div>
+</div>
+
+<div class="footer-contactar">
+    <h4>Contacto</h4>
+    <p>Calle 123 #45-67, Santa Marta</p>
+    <p>Email: vortex@gmail.com</p>
+    <p>Tel: +57 3017657878</p>
+</div>
+    </div>
+    <div class="footer-derechos">
+    <p>© 2025 Vortex | Todos los derechos reservados</p>
+    </div>
+</footer>
+
+<script src="script.js">
+</script>
+</body>
+</html>

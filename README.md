@@ -6,9 +6,9 @@ Vortex es una página web de comercio electrónico desarrollada como proyecto ac
 
 Su desarrollo estuvo enfocado en la implementación de buenas prácticas de maquetación, diseño responsive y experiencia de usuario, permitiéndome fortalecer mis habilidades en la creación de interfaces modernas, organizadas y adaptables a diferentes dispositivos.
 
-## Capturas
+## Imágenes
 
-### Página principal
+### Vista principal
 
 ![Página principal](img/vortex-escritorio.png)
 
@@ -16,7 +16,7 @@ Su desarrollo estuvo enfocado en la implementación de buenas prácticas de maqu
 
 ![Sección de productos](img/vortex-computadores.png)
 
-## Tecnologías 
+## Tecnologías utilizadas
 
 - HTML5
 - CSS3
@@ -42,9 +42,9 @@ Durante el desarrollo de este proyecto fortalecí mis conocimientos en:
 - Maquetación web
 - JavaScript básico
 
-## Demo
+## Sitio web
 
-https://tiendatecnologia-vortex.vercel.app/
+[Visita Vortex en vivo aquí](https://tiendatecnologia-vortex.vercel.app/)
 
 ## Equipo de desarrollo
 
